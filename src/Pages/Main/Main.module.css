@@ -1,0 +1,9 @@
+.container {
+    padding: 8px;
+}
+.form {
+    border: .5px solid black;
+}
+.cardWidth {
+    width: 20dvw;
+}
