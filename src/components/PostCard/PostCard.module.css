@@ -1,5 +1,20 @@
 .card {
-    background-color: white;
-    border: 0.5px gray solid;
-    padding: 5px;
-}
+    padding: 16px;
+    border-radius: 4px;
+  }
+  .orange {
+    background-color: rgb(251, 154, 42);
+    border: 1px solid rgb(163, 89, 5);
+    border-left: 3px solid;
+  }
+  .blue {
+    background-color: rgb(42, 115, 251);
+    border: 1px solid rgb(0, 48, 138);
+    border-left: 3px solid;
+  }
+  .yellow {
+    background-color: rgb(255, 237, 75);
+    border: 1px solid rgb(139, 126, 2);
+    border-left: 3px solid;
+  }
+  

@@ -1,5 +1,13 @@
 .card {
-    background-color: white;
-    border: 0.5px gray solid;
-    padding: 5px;
-}
+    background: white;
+    border: 1px solid gray;
+    padding: 16px;
+  }
+  .title {
+    border-bottom: 1px solid gray;
+    margin: -16px;
+    margin-bottom: 16px;
+    padding: 8px;
+    font-weight: bold;
+  }
+  
