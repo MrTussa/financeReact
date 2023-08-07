@@ -14,19 +14,14 @@ const options = [
   { value: "income", label: "income" },
   { value: "expenses", label: "expenses" },
 ];
-const formCategory = [
-  { value: "salary", label: "salary" },
-  { value: "food", label: "food" },
-  { value: "deposit", label: "deposit" },
-];
 
 export default function Main() {
-  const [type, setType] = useState("income");
-  const [category, setCategory] = useState("food");
+  const [type, setType] = useState("");
+  const [category, setCategory] = useState("");
   const [price, setPrice] = useState();
   const [data, setData] = useState(arrayPost);
   const [startDate, setStartDate] = useState(new Date());
-
+  
   const changeSelectHandler = (choise) => {
     setType(choise.value);
   };
@@ -36,6 +31,25 @@ export default function Main() {
   const changePriceHandler = (e) => {
     setPrice(e.target.value);
   };
+  const categoryHandler = () => {
+    console.log(type);
+    if (category === "income") {
+      return  [
+        { value: "salary", label: "salary" },
+        { value: "investments", label: "investments" },
+        { value: "deposit", label: "deposit" },
+        { value: "other", label: "other" },
+      ]
+    } else {
+      return [
+        { value: "taxes", label: "taxes" },
+        { value: "food", label: "food" },
+        { value: "transfer", label: "transfer" },
+        { value: "utilities", label: "utilities" },
+        { value: "other", label: "other" },
+      ]
+    }
+  }
   const saveHandler = () => {
     const date = startDate.toLocaleDateString();
     const newItem = {
@@ -55,8 +69,7 @@ export default function Main() {
     .map((item) => {
       return { value: item.price, name: item.title };
     });
-  console.log(filterIncome);
-  console.log();
+
   return (
     <div className={s.container}>
       <div className={s.sidebar}>
@@ -75,7 +88,7 @@ export default function Main() {
             <div className={s.formColumn}>
               <span>Type</span>
               <Select
-                options={formCategory}
+                options={categoryHandler()}
                 onChange={changeSelectHandler}
                 className={s.formSize}
               />
