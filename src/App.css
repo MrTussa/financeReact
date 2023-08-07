@@ -1,0 +1,11 @@
+.react-datepicker__input-container {
+    width: 100% !important;
+}
+.react-datepicker__tab-loop {
+    position: absolute;
+    left: 4%;
+    top: -290%;
+}
+.react-datepicker-wrapper {
+    width: 60%;
+}

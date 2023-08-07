@@ -1,13 +1,13 @@
 import s from "./PostCard.module.css";
 import clsx from "clsx";
 
-function PostCard({ title, date, price, className, type = "blue" }) {
+function PostCard({ title, date, price, className, type = "expenses", key }) {
+  console.log(key);
   return (
-    <div
+    <div key={key}
       className={clsx(className, s.card, {
-        [s.blue]: type === "salary",
-        [s.yellow]: type === "food",
-        [s.orange]: type === "orange",
+        [s.expenses]: type === "expenses",
+        [s.income]: type === "income",
       })}
     >
       <div className={s.title}>{title}</div>

@@ -1,20 +1,25 @@
 .card {
     padding: 16px;
     border-radius: 4px;
+    font-weight: 500;
+    text-transform: capitalize;
   }
-  .orange {
-    background-color: rgb(251, 154, 42);
+  .income {
+    background-color: rgb(251, 154, 42, 0.3);
     border: 1px solid rgb(163, 89, 5);
-    border-left: 3px solid;
+    border-left: 3px solid rgb(163, 89, 5, 0.6);
   }
-  .blue {
-    background-color: rgb(42, 115, 251);
-    border: 1px solid rgb(0, 48, 138);
-    border-left: 3px solid;
+  .expenses {
+    background-color: rgb(0, 179, 179, 0.5);;
+    border: 1px solid rgb(0, 99, 138);
+    border-left: 3px solid rgb(0, 99, 138, 0.6);
   }
   .yellow {
     background-color: rgb(255, 237, 75);
     border: 1px solid rgb(139, 126, 2);
     border-left: 3px solid;
   }
-  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+  }
