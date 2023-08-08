@@ -64,16 +64,26 @@ export default function Main() {
       alert("Enter price!");
     }
   };
-  const filterIncome = data
-    .filter((item) => item.type === "income")
-    .map((item) => {
-      return { value: item.price, name: item.title };
-    });
+  const filterIncome = (type) => { 
+    if(type === "income") {    
+      return data
+      .filter((item) => item.type === "income")
+      .map((item) => {
+        return { value: item.price, name: item.title };
+      })
+    } else {
+      return data
+      .filter((item) => item.type === "expenses")
+      .map((item) => {
+        return { value: item.price, name: item.title };
+      })
+    }
+  };
 
   return (
     <div className={s.container}>
       <div className={s.sidebar}>
-        <Card title="Income">
+        <Card>
           <div className={s.form}>
             <div className={s.formColumn}>
               <span>Date</span>
@@ -128,7 +138,9 @@ export default function Main() {
           })}
         </Card>
       </div>
-      <div className="pieChartContainer">
+      <div className={s.pieChartContainer}>
+        
+        <Card title="Income" className={s.pieCard}>
         <ReactECharts
           option={{
             tooltip: {
@@ -158,11 +170,48 @@ export default function Main() {
                 labelLine: {
                   show: false,
                 },
-                data: filterIncome,
+                data: filterIncome("income"),
               },
             ],
           }}
         />
+        </Card>
+        <Card title="Expences" className={s.pieCard}>
+        <ReactECharts
+          option={{
+            tooltip: {
+              trigger: "item",
+            },
+            legend: {
+              top: "3%",
+              left: "center",
+            },
+            series: [
+              {
+                name: "Access From",
+                type: "pie",
+                radius: ["40%", "70%"],
+                avoidLabelOverlap: false,
+                label: {
+                  show: false,
+                  position: "center",
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: 40,
+                    fontWeight: "bold",
+                  },
+                },
+                labelLine: {
+                  show: false,
+                },
+                data: filterIncome("expenses"),
+              },
+            ],
+          }}
+        />
+        </Card>
       </div>
     </div>
   );
